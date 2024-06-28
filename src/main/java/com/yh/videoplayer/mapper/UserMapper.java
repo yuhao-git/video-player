@@ -9,7 +9,7 @@ public interface UserMapper {
     public List<User> getAllUser();
 
 //    @Select("select id, name, age from user where name like concat('%',#{name},'%') and age > #{age}" )
-    public List<User> getUsersByName(@Param("name") String name,@Param("age") Integer age);
+    public List<User> getUsersByNameAndAge(@Param("name") String name,@Param("age") Integer age);
     @Select("select id, name, age from user where id = #{id}")
     public User getUserById(String id);
     @Insert("insert into user(id,name,age) values(#{id},#{name},#{age})")

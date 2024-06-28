@@ -21,9 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User> getUserByName(String name, Integer age, PageParam pageParam) {
+    public PageInfo<User> getUsersByNameAndAge(String name, Integer age, PageParam pageParam) {
         PageHelper.startPage(pageParam.getPageNum(), pageParam.getPageSize());
-        List<User> list = userMapper.getUsersByName(name,age);
+        List<User> list = userMapper.getUsersByNameAndAge(name,age);
         return PageInfo.of(list);
     }
 

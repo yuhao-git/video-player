@@ -5,7 +5,6 @@ import com.github.pagehelper.PageParam;
 import com.yh.videoplayer.pojo.User;
 import com.yh.videoplayer.service.UserService;
 import com.yh.videoplayer.vo.Result;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -28,18 +27,13 @@ public class UserController {
 //        return Result.fail("未知错误！");
     }
 
-    @PostMapping("/add/user")
-    public Result<String> addUser(@RequestBody User user){
-        userService.addUser(user);
-        return Result.success("添加成功");
-    }
 
     // 模糊查询
     @PostMapping("/find/users")
     public Result<PageInfo<User>> findUsers(@RequestParam(value = "name",required = false) String name,
                                             @RequestParam(value = "age",required = false) Integer age,
                                             PageParam pageParam){
-        PageInfo<User> info = userService.getUserByName(name,age,pageParam);
+        PageInfo<User> info = userService.getUsersByNameAndAge(name,age,pageParam);
         return Result.success(info);
     }
 

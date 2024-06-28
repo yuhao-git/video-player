@@ -4,7 +4,7 @@
     <select id="getAllUser"  resultType="com.yh.videoplayer.pojo.User">
         select id,name,age from user;
     </select>
-    <select id="getUsersByName"  resultType="com.yh.videoplayer.pojo.User">
+    <select id="getUsersByNameAndAge"  resultType="com.yh.videoplayer.pojo.User">
         select id, name, age from user
         <where>
             <if test="name != null and name != ''">
