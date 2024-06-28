@@ -33,8 +33,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getUserByName(String name) {
+        return userMapper.getUserByName(name);
+    }
+
+    @Override
+    public User getUserByNameAndPassword(String name, String password) {
+        return userMapper.getUserByNameAndPassword(name,password);
+    }
+
+    @Override
     public void addUser(User user) {
         userMapper.addUser(user);
     }
+
+
 
 }

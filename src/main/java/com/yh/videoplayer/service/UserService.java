@@ -7,11 +7,15 @@ import com.yh.videoplayer.pojo.User;
 
 import java.util.List;
 public interface UserService {
-    public List<User> getAllUser();
-    public PageInfo<User> getUsersByNameAndAge(String name, Integer age, PageParam pageParam);
+     List<User> getAllUser();
+     PageInfo<User> getUsersByNameAndAge(String name, Integer age, PageParam pageParam);
 
-    public User getUserById(String id);
+     User getUserById(String id);
 
-    void addUser(User user);
+     User getUserByName(String name);
+
+     User getUserByNameAndPassword(String name,String password);
+
+     void addUser(User user);
 
 }
