@@ -1,5 +1,8 @@
 package com.yh.videoplayer.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageParam;
 import com.yh.videoplayer.mapper.UserMapper;
 import com.yh.videoplayer.pojo.User;
 import com.yh.videoplayer.service.UserService;
@@ -18,8 +21,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> getUserByName(String name,Integer age) {
-        return userMapper.getUsersByName(name,age);
+    public PageInfo<User> getUserByName(String name, Integer age, PageParam pageParam) {
+        PageHelper.startPage(pageParam.getPageNum(), pageParam.getPageSize());
+        List<User> list = userMapper.getUsersByName(name,age);
+        return PageInfo.of(list);
     }
 
     @Override

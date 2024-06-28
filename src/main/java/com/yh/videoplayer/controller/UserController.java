@@ -1,5 +1,7 @@
 package com.yh.videoplayer.controller;
 
+import com.github.pagehelper.PageInfo;
+import com.github.pagehelper.PageParam;
 import com.yh.videoplayer.pojo.User;
 import com.yh.videoplayer.service.UserService;
 import com.yh.videoplayer.vo.Result;
@@ -34,9 +36,11 @@ public class UserController {
 
     // 模糊查询
     @PostMapping("/find/users")
-    public Result<List<User>> findUsers(@RequestParam(value = "name",required = false) String name,
-                                        @RequestParam(value = "age",required = false) Integer age){
-        return Result.success(userService.getUserByName(name,age));
+    public Result<PageInfo<User>> findUsers(@RequestParam(value = "name",required = false) String name,
+                                            @RequestParam(value = "age",required = false) Integer age,
+                                            PageParam pageParam){
+        PageInfo<User> info = userService.getUserByName(name,age,pageParam);
+        return Result.success(info);
     }
 
 
