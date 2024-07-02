@@ -6,7 +6,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.yh.videoplayer.exception.CustomException;
-import com.yh.videoplayer.pojo.User;
+import com.yh.videoplayer.dao.User;
 import com.yh.videoplayer.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

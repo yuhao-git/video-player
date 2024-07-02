@@ -3,8 +3,9 @@ package com.yh.videoplayer.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.PageParam;
+import com.yh.videoplayer.dto.UserDTO;
 import com.yh.videoplayer.mapper.UserMapper;
-import com.yh.videoplayer.pojo.User;
+import com.yh.videoplayer.dao.User;
 import com.yh.videoplayer.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +22,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public PageInfo<User> getUsersByNameAndAge(String name, Integer age, PageParam pageParam) {
+    public PageInfo<UserDTO> getUsersByNameAndAge(String username, Integer age, PageParam pageParam) {
         PageHelper.startPage(pageParam.getPageNum(), pageParam.getPageSize());
-        List<User> list = userMapper.getUsersByNameAndAge(name,age);
+        List<UserDTO> list = userMapper.getUsersByNameAndAge(username,age);
         return PageInfo.of(list);
     }
 
@@ -33,13 +34,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByName(String name) {
-        return userMapper.getUserByName(name);
+    public User getUserByName(String username) {
+        return userMapper.getUserByName(username);
     }
 
     @Override
-    public User getUserByNameAndPassword(String name, String password) {
-        return userMapper.getUserByNameAndPassword(name,password);
+    public User getUserByNameAndPassword(String username, String password) {
+        return userMapper.getUserByNameAndPassword(username,password);
     }
 
     @Override
