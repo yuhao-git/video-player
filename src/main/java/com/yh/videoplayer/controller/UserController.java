@@ -6,7 +6,7 @@ import com.github.pagehelper.PageParam;
 import com.yh.videoplayer.exception.CustomException;
 import com.yh.videoplayer.pojo.User;
 import com.yh.videoplayer.service.UserService;
-import com.yh.videoplayer.vo.JwtTokenUtils;
+import com.yh.videoplayer.common.JwtTokenUtils;
 import com.yh.videoplayer.vo.Result;
 import org.springframework.web.bind.annotation.*;
 

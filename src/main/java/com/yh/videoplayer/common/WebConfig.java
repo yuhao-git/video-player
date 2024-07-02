@@ -1,4 +1,4 @@
-package com.yh.videoplayer.vo;
+package com.yh.videoplayer.common;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RestController;
